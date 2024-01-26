@@ -76,6 +76,13 @@ function sortColumn(index, coursesData) {
             coursesData.sort((a, b) => (a.progression > b.progression) ? 1 : -1);
             break;
     }
+
+        //Hämta elementet där kurserna ska visas och töm
+        const codeEl = document.getElementById("code");
+        codeEl.innerHTML = "";
+    
+        //Visa de sorterade kurserna i tabellen
+        displayCourses(coursesData);
 }
 
 
