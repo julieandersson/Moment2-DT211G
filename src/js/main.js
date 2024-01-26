@@ -11,6 +11,16 @@ async function init() {
         const response = await fetch(url);
         const courses = await response.json();
 
+        // Sortera kurskod
+        courses.sort((a, b) => (a.code > b.code) ? 1 : -1);
+
+        // Sortera kursnamn
+        courses.sort((a, b) => (a.coursename > b.coursename) ? 1 : -1);
+
+        //Sortera progression
+        courses.sort((a, b) => (a.progression > b.progression) ? 1 : -1);
+
+
         displayCourses(courses);
     } catch {
         document.getElementById("error").innerHTML = "<p>Något gick fel, prova igen senare!</p>";
@@ -42,6 +52,12 @@ function displayCourses(courses) {
         newProgression.appendChild(newProgressionText);
         newRow.appendChild(newProgression);
 
-        codeEl.appendChild(newRow);
+        codeEl.appendChild(newRow); 
+
     });
 }
+
+
+
+
+
