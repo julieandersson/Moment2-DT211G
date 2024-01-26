@@ -63,6 +63,23 @@ function addEventHandlers(coursesData) {
     });
 }
 
+function sortColumn(index, coursesData) {
+    //Sortera kurserna baserat på vilken kolumn som klickades på
+    switch (index) {
+        case 0:
+            coursesData.sort((a, b) => (a.code > b.code) ? 1 : -1);
+            break;
+        case 1:
+            coursesData.sort((a, b) => (a.coursename > b.coursename) ? 1 : -1);
+            break;
+        case 2:
+            coursesData.sort((a, b) => (a.progression > b.progression) ? 1 : -1);
+            break;
+    }
+}
+
+
+
 
 
 
