@@ -35,3 +35,8 @@ td {
     border-bottom: 1px solid #ecf0f1;
 }
 
+thead td {
+    cursor: pointer;
+    text-decoration: underline;
+}
+

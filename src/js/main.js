@@ -3,26 +3,21 @@
 
 const url = "https://dahlgren.miun.se/ramschema_ht23.php";
 
+
 window.onload = init;
 
 async function init() {
     try {
         // Fetch-anrop
         const response = await fetch(url);
-        const courses = await response.json();
+        const coursesData = await response.json();
 
-        // Sortera kurskod
-        courses.sort((a, b) => (a.code > b.code) ? 1 : -1);
+        // Visa kuser i tabellen och lägg till händelsehanterare för sortering
+        displayCourses(coursesData);
+        addEventHandlers(coursesData);
 
-        // Sortera kursnamn
-        courses.sort((a, b) => (a.coursename > b.coursename) ? 1 : -1);
-
-        //Sortera progression
-        courses.sort((a, b) => (a.progression > b.progression) ? 1 : -1);
-
-
-        displayCourses(courses);
     } catch {
+        // felmeddelande om hämtning misslyckas
         document.getElementById("error").innerHTML = "<p>Något gick fel, prova igen senare!</p>";
     }
 }
