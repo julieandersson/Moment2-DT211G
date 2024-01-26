@@ -102,6 +102,12 @@ function sortColumn(index, coursesData) {
         return codeMatch || nameMatch;
     });
 
+    const codeEl = document.getElementById("code");
+    codeEl.innerHTML = "";
+
+    // Visa de filtrerade kurserna i tabellen
+    displayCourses(filteredCourses);
+
 }
 
 
