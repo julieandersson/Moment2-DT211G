@@ -52,6 +52,17 @@ function displayCourses(courses) {
     });
 }
 
+function addEventHandlers(coursesData) {
+    // Hitta alla <td> i <thead>
+    const headers = document.querySelectorAll("thead td");
+
+    //Lägg till händelsehanterare för klick på varje <td>
+    headers.forEach((header, index) => {
+        header.addEventListener("click", () => sortColumn(index, coursesData));
+
+    });
+}
+
 
 
 
