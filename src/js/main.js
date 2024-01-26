@@ -30,6 +30,12 @@ function displayCourses(courses) {
         newCodeId.appendChild(newCodeName);
         newRow.appendChild(newCodeId);
 
+        // Kursnamn
+        let newCourseName = document.createElement("td");
+        let newCourseNameText = document.createTextNode(course.coursename);
+        newCourseName.appendChild(newCourseNameText);
+        newRow.appendChild(newCourseName);
+
         codeEl.appendChild(newRow);
     });
 }
