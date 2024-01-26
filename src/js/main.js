@@ -36,6 +36,12 @@ function displayCourses(courses) {
         newCourseName.appendChild(newCourseNameText);
         newRow.appendChild(newCourseName);
 
+        // Progression
+        let newProgression = document.createElement("td");
+        let newProgressionText = document.createTextNode(course.progression);
+        newProgression.appendChild(newProgressionText);
+        newRow.appendChild(newProgression);
+
         codeEl.appendChild(newRow);
     });
 }
