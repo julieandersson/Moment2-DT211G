@@ -67,7 +67,9 @@ function addEventHandlers(coursesData) {
     // Lägg till händelsehanterare för sökfunktionen
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("input", () => filterCourses(searchInput.value, coursesData));
-    }
+}
+
+/*------------FUNKTION FÖR SORTERING AV KURSER-----------------*/
 
 function sortColumn(index, coursesData) {
     //Sortera kurserna baserat på vilken kolumn som klickades på
@@ -89,6 +91,17 @@ function sortColumn(index, coursesData) {
     
         //Visa de sorterade kurserna i tabellen
         displayCourses(coursesData);
+}
+
+/*------------FUNKTION FÖR FILTRERING/SÖK AV KURSER-----------------*/
+
+ function filterCourses(searchTerm, coursesData) {
+    const filteredCourses = coursesData.filter(course => {
+        const codeMatch = course.code.toLowerCase().includes(searchTerm.toLowerCase());
+        const nameMatch = course.coursename.toLowerCase().includes(searchTerm.toLowerCase());
+        return codeMatch || nameMatch;
+    });
+
 }
 
 
