@@ -63,7 +63,11 @@ function addEventHandlers(coursesData) {
         header.addEventListener("click", () => sortColumn(index, coursesData));
 
     });
-}
+
+    // Lägg till händelsehanterare för sökfunktionen
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", () => filterCourses(searchInput.value, coursesData));
+    }
 
 function sortColumn(index, coursesData) {
     //Sortera kurserna baserat på vilken kolumn som klickades på

@@ -44,6 +44,8 @@ thead td {
 }
 
 #searchInput {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
     width: 98%;
     padding: 8px;
     border: 1px solid #ccc;
