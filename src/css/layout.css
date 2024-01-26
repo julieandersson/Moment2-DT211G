@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f4;
 }
 
-h1, td {
+h1, td, p {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -42,4 +42,24 @@ thead td {
     cursor: pointer;
     text-decoration: underline;
 }
+
+#searchInput {
+    width: 98%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchInput::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 5px rgba(157, 157, 157, 0.5);
+    outline: none;
+}
+
+
+
 
