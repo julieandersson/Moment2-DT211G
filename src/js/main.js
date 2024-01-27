@@ -4,6 +4,8 @@
 
 
 const url = "https://dahlgren.miun.se/ramschema_ht23.php";
+let sortOrder = -1; //skapar en global variabel för att hålla reda på ordningen (stigande eller fallande)
+let sortOrderColumn = 0; //global variabel för att hålla reda på vilken kolumn som är sorterad
 
 
 window.onload = init;
@@ -72,16 +74,23 @@ function addEventHandlers(coursesData) {
 /*------------FUNKTION FÖR SORTERING AV KURSER-----------------*/
 
 function sortColumn(index, coursesData) {
-    //Sortera kurserna baserat på vilken kolumn som klickades på
+
+    //Ändra sortordningen om samma kolumn klickas igen
+    sortOrder = (index === sortOrderColumn) ? -sortOrder : 1;
+
+    // Uppdatera sortorderColumn-varibalen
+    sortOrderColumn = index;
+
+    //Sortera kurserna baserat på vilken kolumn som klickades på och ordningen
     switch (index) {
         case 0:
-            coursesData.sort((a, b) => (a.code > b.code) ? 1 : -1);
+            coursesData.sort((a, b) => (a.code > b.code) ? sortOrder : -sortOrder);
             break;
         case 1:
-            coursesData.sort((a, b) => (a.coursename > b.coursename) ? 1 : -1);
+            coursesData.sort((a, b) => (a.coursename > b.coursename) ? sortOrder : -sortOrder);
             break;
         case 2:
-            coursesData.sort((a, b) => (a.progression > b.progression) ? 1 : -1);
+            coursesData.sort((a, b) => (a.progression > b.progression) ? sortOrder : -sortOrder);
             break;
     }
 
