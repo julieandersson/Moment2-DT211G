@@ -90,7 +90,8 @@ function sortColumn(index, coursesData) {
             coursesData.sort((a, b) => (a.coursename > b.coursename) ? sortOrder : -sortOrder);
             break;
         case 2:
-            coursesData.sort((a, b) => (a.progression > b.progression) ? sortOrder : -sortOrder);
+            // ändrar och jämför progressionen som bokstäver istället för textsträngar för att få korrekt sortering
+            coursesData.sort((a, b) => sortOrder * (a.progression.localeCompare(b.progression)));
             break;
     }
 
